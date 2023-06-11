@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.18.0](https://github.com/aave/aave-utilities/compare/@aave/contract-helpers@1.17.6...@aave/contract-helpers@1.18.0) (2023-06-11)
+
+
+### Features
+
+* add block number support ([d7b115e](https://github.com/aave/aave-utilities/commit/d7b115ef71ca8472ca9b12926b03505becbb3d80))
+
+
+
+
+
 ## 1.17.6 (2023-06-01)
 
 
