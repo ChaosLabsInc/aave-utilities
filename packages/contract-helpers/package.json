@@ -1,6 +1,6 @@
 {
   "name": "@chaos-labs/contract-helpers",
-  "version": "1.18.1",
+  "version": "1.18.2",
   "sideEffects": false,
   "license": "MIT",
   "description": "",
@@ -17,12 +17,11 @@
   },
   "peerDependencies": {
     "bignumber.js": "^9.x",
-    "ethers": "^5.x",
+    "ethers": "5.4.7",
     "reflect-metadata": "^0.1.x",
     "tslib": "^2.4.x"
   },
   "devDependencies": {
-    "ethers": "5.4.7",
     "reflect-metadata": "^0.1.13"
   },
   "dependencies": {
