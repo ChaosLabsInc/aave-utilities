@@ -1,6 +1,6 @@
 {
-  "name": "@chaos-labs/math-utils",
-  "version": "1.17.6",
+  "name": "@aave/math-utils",
+  "version": "1.30.5",
   "license": "MIT",
   "description": "",
   "scripts": {

@@ -3,29 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.18.0](https://github.com/aave/aave-utilities/compare/@aave/contract-helpers@1.17.6...@aave/contract-helpers@1.18.0) (2023-06-11)
-
-
-### Features
-
-* add block number support ([d7b115e](https://github.com/aave/aave-utilities/commit/d7b115ef71ca8472ca9b12926b03505becbb3d80))
-
-
-
-
-
-## 1.17.6 (2023-06-01)
-
-
-### Bug Fixes
-
-* gas limits ([#543](https://github.com/aave/aave-utilities/issues/543)) ([cd4e533](https://github.com/aave/aave-utilities/commit/cd4e533c8c469306abaf4a9c1b0a1066b59cf875))
-
-
-
-
-
-## 1.17.5 (2023-05-23)
+## 1.30.5 (2024-10-26)
 
 **Note:** Version bump only for package @aave/contract-helpers
 
@@ -33,7 +11,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## 1.17.4 (2023-05-05)
+## 1.30.4 (2024-10-21)
 
 **Note:** Version bump only for package @aave/contract-helpers
 
@@ -41,29 +19,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## 1.17.3 (2023-05-02)
-
-
-### Bug Fixes
-
-* decimal formatting in credit delegation approval checks ([#538](https://github.com/aave/aave-utilities/issues/538)) ([27eef6b](https://github.com/aave/aave-utilities/commit/27eef6b182f671fc9b4eb13cbd3712be17949c5c))
-
-
-
-
-
-## 1.17.2 (2023-05-01)
-
-
-### Bug Fixes
-
-* integer rounding for migration credit delegation approval buffer ([#537](https://github.com/aave/aave-utilities/issues/537)) ([3eef29e](https://github.com/aave/aave-utilities/commit/3eef29eb2e79bce2e1289c951fa00628bc5d4868))
-
-
-
-
-
-## 1.17.1 (2023-05-01)
+## 1.30.3 (2024-10-09)
 
 **Note:** Version bump only for package @aave/contract-helpers
 
@@ -71,45 +27,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# 1.17.0 (2023-04-27)
+## 1.30.2 (2024-08-26)
 
-
-### Features
-
-* fixed available debt in isolated reserve in case that debt > ma… ([#532](https://github.com/aave/aave-utilities/issues/532)) ([7a2ea1e](https://github.com/aave/aave-utilities/commit/7a2ea1e94a26008247b4c4c045641291ff20261b))
-
-
-
-
-
-# 1.16.0 (2023-04-17)
-
-
-### Features
-
-* update borrow methods SDK ([#527](https://github.com/aave/aave-utilities/issues/527)) ([da31b83](https://github.com/aave/aave-utilities/commit/da31b836dd7a85da0dbfe664b67612b1f261c7a7))
-
-
-
-
-
-# 1.15.0 (2023-04-12)
-
-
-### Features
-
-* add Scroll Alpha chainId ([#528](https://github.com/aave/aave-utilities/issues/528)) ([3418c70](https://github.com/aave/aave-utilities/commit/3418c7087796397ed535fc7a3522445fb44f94c5))
-
-
-
-
-
-# 1.14.0 (2023-04-05)
-
-
-### Features
-
-* tx bundle refactor ([#514](https://github.com/aave/aave-utilities/issues/514)) ([fc5c937](https://github.com/aave/aave-utilities/commit/fc5c9378b48a14a31df9fdbe435095a3e81390a2)), closes [#524](https://github.com/aave/aave-utilities/issues/524) [#504](https://github.com/aave/aave-utilities/issues/504)
+**Note:** Version bump only for package @aave/contract-helpers
 
 
 
@@ -120,13 +40,236 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## 1.13.7 (2023-04-04)
+## 1.30.1 (2024-08-26)
 
 **Note:** Version bump only for package @aave/contract-helpers
 
+# 1.30.0 (2024-08-20)
 
+### Features
 
+- add zksync ([#587](https://github.com/aave/aave-utilities/issues/587))
+  ([f256271](https://github.com/aave/aave-utilities/commit/f25627193eede933a63c09ae1c3dbbb5705d22fa))
 
+## 1.29.1 (2024-07-27)
+
+**Note:** Version bump only for package @aave/contract-helpers
+
+# 1.29.0 (2024-07-26)
+
+### Features
+
+- v3.1 upgrade ([#585](https://github.com/aave/aave-utilities/issues/585))
+  ([c65037e](https://github.com/aave/aave-utilities/commit/c65037e5ba24c6ed910a07012f28d8a9b914eb81))
+
+## 1.28.2 (2024-05-31)
+
+**Note:** Version bump only for package @aave/contract-helpers
+
+## 1.28.1 (2024-05-08)
+
+**Note:** Version bump only for package @aave/contract-helpers
+
+# 1.28.0 (2024-03-19)
+
+### Features
+
+- add gas limit for staking migrate
+  ([#577](https://github.com/aave/aave-utilities/issues/577))
+  ([004602a](https://github.com/aave/aave-utilities/commit/004602a79642b101162de98e2b91c9cd964554fe))
+
+# 1.27.0 (2024-03-11)
+
+### Features
+
+- testnet updates ([#576](https://github.com/aave/aave-utilities/issues/576))
+  ([7334f68](https://github.com/aave/aave-utilities/commit/7334f68e3702fd5d47808b1f374423c1a0d2153b))
+
+# 1.26.0 (2024-03-11)
+
+### Features
+
+- add arbitrum sepolia chainId
+  ([#574](https://github.com/aave/aave-utilities/issues/574))
+  ([433974f](https://github.com/aave/aave-utilities/commit/433974fc1f0e40bdfad21fbab625280c757f1f73))
+
+# 1.25.0 (2024-02-22)
+
+### Features
+
+- sdai token wrapper ([#561](https://github.com/aave/aave-utilities/issues/561))
+  ([c772112](https://github.com/aave/aave-utilities/commit/c77211216fbcf86d71718c5450bc9aab5ec5a002))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# 1.24.0 (2024-02-05)
+
+### Features
+
+- abpt v2 migration ([#573](https://github.com/aave/aave-utilities/issues/573))
+  ([75bb4c0](https://github.com/aave/aave-utilities/commit/75bb4c038ea10b8faf42630a7fb580e7317623b8))
+
+## 1.23.1 (2024-01-24)
+
+**Note:** Version bump only for package @aave/contract-helpers
+
+# 1.23.0 (2024-01-19)
+
+### Features
+
+- add bnb ([#571](https://github.com/aave/aave-utilities/issues/571))
+  ([5b92d16](https://github.com/aave/aave-utilities/commit/5b92d16a39dfb47e0cae95fd3480863b8f9afc75))
+
+# 1.22.0 (2024-01-18)
+
+### Features
+
+- gov v3 ([#564](https://github.com/aave/aave-utilities/issues/564))
+  ([335588e](https://github.com/aave/aave-utilities/commit/335588e2e04056b631a47b1ede50594baebd158e)),
+  closes [#567](https://github.com/aave/aave-utilities/issues/567)
+
+## 1.21.1 (2023-11-21)
+
+**Note:** Version bump only for package @aave/contract-helpers
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# 1.21.0 (2023-10-04)
+
+### Features
+
+- updated debt switch interface
+  ([#559](https://github.com/aave/aave-utilities/issues/559))
+  ([b108c62](https://github.com/aave/aave-utilities/commit/b108c620cf0e3e446840c166b660695ebd66563b))
+
+# 1.20.0 (2023-08-22)
+
+### Features
+
+- withdraw and swap ([#555](https://github.com/aave/aave-utilities/issues/555))
+  ([ca6c230](https://github.com/aave/aave-utilities/commit/ca6c230f39536ba34313ba5ec8295267742216a3))
+
+# 1.19.0 (2023-08-21)
+
+### Features
+
+- add Scroll Sepolia and Scroll chainIds
+  ([#554](https://github.com/aave/aave-utilities/issues/554))
+  ([7510d22](https://github.com/aave/aave-utilities/commit/7510d227dd358f3420d7788a9feaaa72f09e8e9e))
+
+## 1.18.3 (2023-08-18)
+
+**Note:** Version bump only for package @aave/contract-helpers
+
+## 1.18.2 (2023-07-14)
+
+### Bug Fixes
+
+- remove commented imports
+  ([#552](https://github.com/aave/aave-utilities/issues/552))
+  ([91a2772](https://github.com/aave/aave-utilities/commit/91a2772477ce2d9a809114dcbe2535c234603c38))
+
+## 1.18.1 (2023-07-12)
+
+**Note:** Version bump only for package @aave/contract-helpers
+
+# 1.18.0 (2023-07-12)
+
+### Features
+
+- debt switch ([#548](https://github.com/aave/aave-utilities/issues/548))
+  ([8c943d7](https://github.com/aave/aave-utilities/commit/8c943d78eda94f6e330e343d3cded9286ac2079c))
+
+## 1.17.8 (2023-06-22)
+
+**Note:** Version bump only for package @aave/contract-helpers
+
+## 1.17.7 (2023-06-16)
+
+**Note:** Version bump only for package @aave/contract-helpers
+
+## 1.17.6 (2023-06-01)
+
+### Bug Fixes
+
+- gas limits ([#543](https://github.com/aave/aave-utilities/issues/543))
+  ([cd4e533](https://github.com/aave/aave-utilities/commit/cd4e533c8c469306abaf4a9c1b0a1066b59cf875))
+
+## 1.17.5 (2023-05-23)
+
+**Note:** Version bump only for package @aave/contract-helpers
+
+## 1.17.4 (2023-05-05)
+
+**Note:** Version bump only for package @aave/contract-helpers
+
+## 1.17.3 (2023-05-02)
+
+### Bug Fixes
+
+- decimal formatting in credit delegation approval checks
+  ([#538](https://github.com/aave/aave-utilities/issues/538))
+  ([27eef6b](https://github.com/aave/aave-utilities/commit/27eef6b182f671fc9b4eb13cbd3712be17949c5c))
+
+## 1.17.2 (2023-05-01)
+
+### Bug Fixes
+
+- integer rounding for migration credit delegation approval buffer
+  ([#537](https://github.com/aave/aave-utilities/issues/537))
+  ([3eef29e](https://github.com/aave/aave-utilities/commit/3eef29eb2e79bce2e1289c951fa00628bc5d4868))
+
+## 1.17.1 (2023-05-01)
+
+**Note:** Version bump only for package @aave/contract-helpers
+
+# 1.17.0 (2023-04-27)
+
+### Features
+
+- fixed available debt in isolated reserve in case that debt > ma…
+  ([#532](https://github.com/aave/aave-utilities/issues/532))
+  ([7a2ea1e](https://github.com/aave/aave-utilities/commit/7a2ea1e94a26008247b4c4c045641291ff20261b))
+
+# 1.16.0 (2023-04-17)
+
+### Features
+
+- update borrow methods SDK
+  ([#527](https://github.com/aave/aave-utilities/issues/527))
+  ([da31b83](https://github.com/aave/aave-utilities/commit/da31b836dd7a85da0dbfe664b67612b1f261c7a7))
+
+# 1.15.0 (2023-04-12)
+
+### Features
+
+- add Scroll Alpha chainId
+  ([#528](https://github.com/aave/aave-utilities/issues/528))
+  ([3418c70](https://github.com/aave/aave-utilities/commit/3418c7087796397ed535fc7a3522445fb44f94c5))
+
+# 1.14.0 (2023-04-05)
+
+### Features
+
+- tx bundle refactor ([#514](https://github.com/aave/aave-utilities/issues/514))
+  ([fc5c937](https://github.com/aave/aave-utilities/commit/fc5c9378b48a14a31df9fdbe435095a3e81390a2)),
+  closes [#524](https://github.com/aave/aave-utilities/issues/524)
+  [#504](https://github.com/aave/aave-utilities/issues/504)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 1.13.7 (2023-04-04)
+
+**Note:** Version bump only for package @aave/contract-helpers
 
 ## 1.13.6 (2023-03-03)
 

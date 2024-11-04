@@ -396,6 +396,31 @@ export function LiquiditySwapValidator(
   };
 }
 
+export function WithdrawAndSwitchValidator(
+  target: any,
+  propertyName: string,
+  descriptor: TypedPropertyDescriptor<any>,
+): any {
+  const method = descriptor.value;
+  descriptor.value = function () {
+    // @ts-expect-error todo: check why this ignore is needed
+    if (!utils.isAddress(this.withdrawAndSwitchAdapterAddress)) {
+      console.error(
+        `[WithdrawAndSwitchValidator] You need to pass valid addresses`,
+      );
+      return [];
+    }
+
+    isEthAddressValidator(target, propertyName, arguments);
+
+    amountGtThan0Validator(target, propertyName, arguments);
+
+    amountGtThan0OrMinus1(target, propertyName, arguments);
+
+    return method.apply(this, arguments);
+  };
+}
+
 export function RepayWithCollateralValidator(
   target: any,
   propertyName: string,
@@ -455,9 +480,7 @@ export function SignStakingValidator(
   descriptor.value = function () {
     if (
       // @ts-expect-error todo: check why this ignore is needed
-      !utils.isAddress(this.stakingContractAddress) ||
-      // @ts-expect-error todo: check why this ignore is needed
-      !utils.isAddress(this.stakingHelperContractAddress)
+      !utils.isAddress(this.stakingContractAddress)
     ) {
       console.error(`[StakingValidator] You need to pass valid addresses`);
       return [];

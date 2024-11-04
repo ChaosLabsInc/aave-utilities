@@ -1,5 +1,5 @@
 import { SignatureLike } from '@ethersproject/bytes';
-import { BigNumberish, BytesLike } from 'ethers';
+import { BigNumber, BigNumberish, BytesLike } from 'ethers';
 import {
   tEthereumAddress,
   InterestRate,
@@ -50,6 +50,12 @@ export type LPRepayParamsType = {
   interestRateMode: InterestRate;
   onBehalfOf?: tEthereumAddress;
   useOptimizedPath?: boolean;
+  encodedTxData?: string;
+};
+
+export type LPSignedRepayParamsType = LPRepayParamsType & {
+  signature: string;
+  deadline: string;
 };
 
 export type LPSwapBorrowRateMode = {
@@ -147,6 +153,7 @@ export type LPRepayWithPermitParamsType = {
   signature: SignatureLike;
   useOptimizedPath?: boolean;
   deadline: string;
+  encodedTxData?: string;
 };
 
 export type LPSignERC20ApprovalType = {
@@ -167,6 +174,25 @@ export type LPRepayWithATokensType = {
   amount: string;
   rateMode: InterestRate;
   useOptimizedPath?: boolean;
+  encodedTxData?: string;
+};
+
+export type LPReserveData = {
+  configuration: [BigNumber] & { data: BigNumber };
+  liquidityIndex: BigNumber;
+  currentLiquidityRate: BigNumber;
+  variableBorrowIndex: BigNumber;
+  currentVariableBorrowRate: BigNumber;
+  currentStableBorrowRate: BigNumber;
+  lastUpdateTimestamp: number;
+  id: number;
+  aTokenAddress: string;
+  stableDebtTokenAddress: string;
+  variableDebtTokenAddress: string;
+  interestRateStrategyAddress: string;
+  accruedToTreasury: BigNumber;
+  unbacked: BigNumber;
+  isolationModeTotalDebt: BigNumber;
 };
 
 export type BorrowedPositionType = {

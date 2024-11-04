@@ -53,7 +53,7 @@ import { L2Pool, L2PoolInterface } from '../v3-pool-rollups';
 import {
   WETHGatewayInterface,
   WETHGatewayService,
-} from '../wethgateway-contract';
+} from '../v3-wethgateway-contract';
 import {
   LPBorrowParamsType,
   LPSupplyParamsType,
@@ -70,12 +70,14 @@ import {
   LPSwapBorrowRateMode,
   LPSwapCollateral,
   LPWithdrawParamsType,
+  LPReserveData,
   LPV3MigrationParamsType,
 } from './lendingPoolTypes';
 import { IPool } from './typechain/IPool';
 import { IPool__factory } from './typechain/IPool__factory';
 
 export interface PoolInterface {
+  getReserveData: (reserve: tEthereumAddress) => Promise<LPReserveData>;
   deposit: (
     args: LPSupplyParamsType,
   ) => Promise<EthereumTransactionTypeExtended[]>;
@@ -233,6 +235,17 @@ export class Pool extends BaseService<IPool> implements PoolInterface {
       l2PoolAddress: this.poolAddress,
       encoderAddress: this.l2EncoderAddress,
     });
+  }
+
+  @LPValidatorV3
+  public async getReserveData(
+    @isEthAddress('reserve') reserve: tEthereumAddress,
+  ): Promise<LPReserveData> {
+    const lendingPoolContract: IPool = this.getContractInstance(
+      this.poolAddress,
+    );
+
+    return lendingPoolContract.getReserveData(reserve);
   }
 
   @LPValidatorV3
@@ -668,7 +681,6 @@ export class Pool extends BaseService<IPool> implements PoolInterface {
         user,
         amount,
         debtTokenAddress,
-        interestRateMode,
         referralCode,
       });
     }
@@ -737,7 +749,6 @@ export class Pool extends BaseService<IPool> implements PoolInterface {
         lendingPool: this.poolAddress,
         user,
         amount,
-        interestRateMode,
         onBehalfOf,
       });
     }

@@ -1,5 +1,10 @@
 import { BigNumber, BytesLike, PopulatedTransaction } from 'ethers';
-import { LPBorrowParamsType } from '../v3-pool-contract/lendingPoolTypes';
+import {
+  LPBorrowParamsType,
+  LPRepayParamsType,
+  LPRepayWithATokensType,
+  LPSignedRepayParamsType,
+} from '../v3-pool-contract/lendingPoolTypes';
 
 export type tEthereumAddress = string;
 export type ENS = string; // something.eth
@@ -23,18 +28,23 @@ export const ChainIdToNetwork: Record<number, string> = {
   43114: 'avalanche',
   43113: 'fuji',
   42161: 'arbitrum_one',
-  421611: 'arbitrum_rinkeby',
   421613: 'arbitrum_goerli',
+  421614: 'arbitrum_sepolia',
   250: 'fantom_opera',
   4002: 'fantom_testnet',
   10: 'optimism',
-  69: 'optimism_kovan',
-  420: 'optimism_goerli',
+  11155420: 'optimism_sepolia',
   1666600000: 'harmony',
   1666700000: 'harmony_testnet',
   11155111: 'sepolia',
   534353: 'scroll_alpha',
+  534351: 'scroll_sepolia',
+  534352: 'scroll',
   1088: 'metis_andromeda',
+  8453: 'base',
+  84532: 'base_sepolia',
+  56: 'bnb',
+  324: 'zksync',
 };
 
 export enum ChainId {
@@ -49,19 +59,24 @@ export enum ChainId {
   avalanche = 43114,
   fuji = 43113, // avalanche test network
   arbitrum_one = 42161,
-  arbitrum_rinkeby = 421611,
   arbitrum_goerli = 421613,
+  arbitrum_sepolia = 421614,
   fantom = 250,
   fantom_testnet = 4002,
   optimism = 10,
-  optimism_kovan = 69,
-  optimism_goerli = 420,
+  optimism_sepolia = 11155420,
   harmony = 1666600000,
   harmony_testnet = 1666700000,
   zkevm_testnet = 1402,
   sepolia = 11155111,
   scroll_alpha = 534353,
+  scroll_sepolia = 534351,
+  scroll = 534352,
   metis_andromeda = 1088,
+  base = 8453,
+  base_sepolia = 84532,
+  bnb = 56,
+  zksync = 324,
 }
 export type ConstantAddressesByNetwork = Record<
   string,
@@ -109,6 +124,8 @@ export enum ProtocolAction {
   liquidationCall = 'liquidationCall',
   liquidationFlash = 'liquidationFlash',
   repay = 'repay',
+  repayETH = 'repayETH',
+  repayWithATokens = 'repayWithATokens',
   swapCollateral = 'swapCollateral',
   repayCollateral = 'repayCollateral',
   withdrawETH = 'withdrawETH',
@@ -116,12 +133,23 @@ export enum ProtocolAction {
   migrateV3 = 'migrateV3',
   supplyWithPermit = 'supplyWithPermit',
   repayWithPermit = 'repayWithPermit',
+  stakeWithPermit = 'stakeWithPermit',
   vote = 'vote',
   approval = 'approval',
   creditDelegationApproval = 'creditDelegationApproval',
   stake = 'stake',
+  stakeCooldown = 'stakeCooldown',
+  unstake = 'unstake',
+  switchBorrowRateMode = 'switchBorrowRateMode',
+  setEModeUsage = 'setEModeUsage',
+  governanceDelegation = 'governanceDelegation',
   claimRewards = 'claimRewards',
+  claimRewardsAndStake = 'claimRewardsAndStake',
   setUsageAsCollateral = 'setUsageAsCollateral',
+  withdrawAndSwitch = 'withdrawAndSwitch',
+  batchMetaDelegate = 'batchMetaDelegate',
+  updateRepresentatives = 'updateRepresentatives',
+  migrateABPT = 'migrateABPT',
 }
 
 export enum GovernanceVote {
@@ -133,6 +161,8 @@ export enum GovernanceVote {
 export enum Stake {
   aave = 'aave',
   bpt = 'bpt',
+  gho = 'gho',
+  bptv2 = 'bptv2',
 }
 
 export type GasRecommendationType = Record<
@@ -330,4 +360,41 @@ export type BorrowTxBuilder = {
     useOptimizedPath,
     encodedTxData,
   }: LPBorrowParamsType) => PopulatedTransaction;
+  encodeBorrowParams: ({
+    reserve,
+    amount,
+    interestRateMode,
+    referralCode,
+  }: Omit<LPBorrowParamsType, 'user'>) => Promise<string>;
+};
+
+export type RepayTxBuilder = {
+  generateTxData: (params: LPRepayParamsType) => PopulatedTransaction;
+  generateSignedTxData: (
+    params: LPSignedRepayParamsType,
+  ) => PopulatedTransaction;
+  encodeRepayParams: ({
+    reserve,
+    amount,
+    interestRateMode,
+  }: Omit<LPRepayParamsType, 'user'>) => Promise<string>;
+  encodeRepayWithPermitParams: ({
+    reserve,
+    amount,
+    interestRateMode,
+    deadline,
+    signature,
+  }: Pick<
+    LPSignedRepayParamsType,
+    'reserve' | 'amount' | 'interestRateMode' | 'signature' | 'deadline'
+  >) => Promise<[string, string, string]>;
+};
+
+export type RepayWithATokensTxBuilder = {
+  generateTxData: (params: LPRepayWithATokensType) => PopulatedTransaction;
+  encodeRepayWithATokensParams: ({
+    reserve,
+    amount,
+    rateMode,
+  }: Omit<LPRepayWithATokensType, 'user'>) => Promise<string>;
 };
