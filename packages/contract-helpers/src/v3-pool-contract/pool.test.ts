@@ -2,12 +2,9 @@ import { BigNumber, constants, providers, utils } from 'ethers';
 import {
   eEthereumTxType,
   EthereumTransactionTypeExtended,
-  // EthereumTransactionTypeExtended,
   GasType,
   InterestRate,
   ProtocolAction,
-  // InterestRate,
-  // ProtocolAction,
   transactionType,
 } from '../commons/types';
 import {
@@ -15,8 +12,6 @@ import {
   DEFAULT_NULL_VALUE_ON_TX,
   gasLimitRecommendations,
   SURPLUS,
-  // gasLimitRecommendations,
-  // SURPLUS,
   valueToWei,
 } from '../commons/utils';
 import { Pool } from './index';
@@ -5493,6 +5488,16 @@ describe('Pool', () => {
       );
     });
   });
+  describe('getReserveData', () => {
+    const config = { POOL };
+
+    it('should fail when an invalid eth address is passed in', async () => {
+      const poolInstance = new Pool(provider, config);
+      await expect(async () =>
+        poolInstance.getReserveData('not an address'),
+      ).rejects.toThrowError();
+    });
+  });
   describe('migrateV3', () => {
     const config = { POOL };
     const migrator = '0x0000000000000000000000000000000000000006';
@@ -5619,6 +5624,16 @@ describe('Pool', () => {
       ).rejects.toThrowError(
         `Address: ${borrowedAssets[0]} is not a valid ethereum Address`,
       );
+    });
+  });
+  describe('getReserveData', () => {
+    const config = { POOL };
+
+    it('should fail when an invalid eth address is passed in', async () => {
+      const poolInstance = new Pool(provider, config);
+      await expect(async () =>
+        poolInstance.getReserveData('not an address'),
+      ).rejects.toThrowError();
     });
   });
 });

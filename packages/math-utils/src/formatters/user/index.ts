@@ -1,6 +1,9 @@
 import { BigNumberValue, normalize } from '../../bignumber';
 import { LTV_PRECISION, USD_DECIMALS } from '../../constants';
-import { calculateAllUserIncentives, UserIncentiveDict } from '../incentive';
+import {
+  calculateAllUserIncentives,
+  UserIncentiveDict,
+} from '../incentive/calculate-all-user-incentives';
 import {
   ReservesIncentiveDataHumanized,
   UserReservesIncentivesDataHumanized,
@@ -17,10 +20,7 @@ export interface UserReserveData {
   underlyingAsset: string;
   scaledATokenBalance: string;
   usageAsCollateralEnabledOnUser: boolean;
-  stableBorrowRate: string;
   scaledVariableDebt: string;
-  principalStableDebt: string;
-  stableBorrowLastUpdateTimestamp: number;
 }
 
 export interface CombinedReserveData<
@@ -38,14 +38,9 @@ export interface ComputedUserReserve<
   variableBorrows: string;
   variableBorrowsMarketReferenceCurrency: string;
   variableBorrowsUSD: string;
-  stableBorrows: string;
-  stableBorrowsMarketReferenceCurrency: string;
-  stableBorrowsUSD: string;
   totalBorrows: string;
   totalBorrowsMarketReferenceCurrency: string;
   totalBorrowsUSD: string;
-  stableBorrowAPY: string;
-  stableBorrowAPR: string;
 }
 
 export interface FormatUserSummaryRequest<
@@ -75,6 +70,7 @@ export interface FormatUserSummaryResponse<
   currentLoanToValue: string;
   currentLiquidationThreshold: string;
   healthFactor: string;
+  userEmodeCategoryId: number;
   isInIsolationMode: boolean;
   isolatedReserve?: FormatReserveUSDResponse;
 }
@@ -179,6 +175,7 @@ export function formatUserSummary<
       LTV_PRECISION,
     ),
     healthFactor: userData.healthFactor.toFixed(),
+    userEmodeCategoryId,
     isInIsolationMode: userData.isInIsolationMode,
     isolatedReserve: userData.isolatedReserve,
   };

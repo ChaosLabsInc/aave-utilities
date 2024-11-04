@@ -1,6 +1,6 @@
 module.exports = {
   preset: 'ts-jest',
-  collectCoverageFrom: ['packages/*/src/**/*.ts'],
+  collectCoverageFrom: ['packages/*/src/**(!typechain)/*.ts'],
   coverageDirectory: 'coverage',
   coverageReporters: ['lcov', 'text'],
   coverageThreshold: {
@@ -12,6 +12,7 @@ module.exports = {
     },
   },
   coveragePathIgnorePatterns: [
+    'packages/contract-types/*',
     'packages/contract-helpers/src/permissions-manager/typechain',
     'packages/contract-helpers/src/ui-incentive-data-provider/typechain',
     'packages/contract-helpers/src/wallet-balance-provider/typechain',
@@ -36,10 +37,11 @@ module.exports = {
     'packages/contract-helpers/src/uiStakeDataProvider-contract/typechain',
     'packages/contract-helpers/src/repayWithCollateralAdapter-contract/typechain',
     'packages/contract-helpers/src/paraswap-repayWithCollateralAdapter-contract/typechain',
+    'packages/contract-helpers/src/paraswap-debtSwitch-contract/typechain',
     'packages/contract-helpers/src/lendingPool-contract/typechain',
     'packages/contract-helpers/src/v3-migration-contract/typechain',
     'packages/contract-helpers/src/index.ts',
-    'packages/math-utils/src/formatters/reserve/index.ts', // TODO: remove
+    'packages/math-utils/src/formatters/reserve/index.ts',
   ],
   modulePathIgnorePatterns: ['node_modules'],
   testEnvironment: 'node',
