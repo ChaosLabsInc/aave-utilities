@@ -256,7 +256,7 @@ export class UiPoolDataProvider implements UiPoolDataProviderInterface {
       throw new Error('Lending pool address is not valid');
     }
 
-    return this._contract.getEModes(lendingPoolAddressProvider);
+    return this._contract.getEModes(lendingPoolAddressProvider, this.overrides);
   }
 
   public async getEModesHumanized({
